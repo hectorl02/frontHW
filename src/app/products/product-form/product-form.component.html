@@ -1,0 +1,53 @@
+<div class="card m-5">
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div>
+        <button  class="btn btn-primary btn-sm ml-2" (click)="newProduct()" type="submit">new Product</button>
+      </div>
+      <div class="form-group">
+        Product ID
+        <input
+          formControlName="productId"
+          type="number"
+          class="form-control text-center"
+          name="product-id"
+          id="product-id">
+      </div>
+      <div class="form-group">
+        Name
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control text-center"
+          name="name"
+          id="name">
+      </div>
+      <div class="form-group">
+        Description
+        <input
+          formControlName="description"
+          type="text"
+          class="form-control text-center"
+          name="description"
+          id="description">
+      </div>
+      <div class="form-group">
+        Price
+        <input
+          formControlName="price"
+          type="number"
+          class="form-control text-center"
+          name="price"
+          id="price">
+      </div>
+      <div *ngIf="!product" class="form-group mt-2">
+        <button class="btn btn-primary" (click)="onClickSave()" type="submit">Save</button>
+      </div>
+      <div *ngIf="!!product" class="form-group mt-2">
+        <button class="btn btn-primary" (click)="onUpdate()" type="submit">Update</button>
+        <button class="btn btn-primary ml-2" (click)="onDelete()" type="submit">Delete</button>
+      </div>
+    </form>
+  </div>
+  <code>{{ form.getRawValue() | json }}</code>
+</div>

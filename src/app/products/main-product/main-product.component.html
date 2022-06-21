@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+    <app-product-form
+      [setProduct]="product"
+      (saveEmit)="onSaveProduct($event)"
+      (deleteEmit)="onDeleteProduct($event)">
+    </app-product-form>
+  </div>
+  <div class="col mt-5 me-5">
+    <app-product-list *ngIf="!!products && products.length > 0"
+        [products]="products"
+        (clickEmit)="onClickProduct($event)">
+    </app-product-list>
+  </div>
+</div>
